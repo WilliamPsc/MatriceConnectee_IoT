@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Matrice connectée</string>
+    <string name="connection">Connexion</string>
+    <string name="disconnection">Déconnexion</string>
+
+    <string name="centre">Centre</string>
+    <string name="gauche">Gauche</string>
+    <string name="droite">Droite</string>
+    <string name="bas">Bas</string>
+    <string name="haut">Haut</string>
+    <string name="launch">Lancement de l\'application</string>
+    <string name="settings">Paramètres</string>
+    <string name="logo">Logo de l\'application</string>
+    <string name="retour">Retour</string>
+    <string name="about_header">A propos de l\'application</string>
+    <string name="author">Auteurs</string>
+    <string name="developpers">Maureen PERON, Timothé LANNUZEL, William PENSEC</string>
+    <string name="context">Contexte</string>
+    <string name="project">Cette application a été développé pour un projet de Master 2 Informatique</string>
+    <string name="version">Version</string>
+    <string name="date">Date de la dernière version</string>
+    <string name="launchMatrix">Lancement de la matrice</string>
+    <string name="data">Données à sauvegarder</string>
+    <string name="ip_serveur">Adresse IP du serveur :</string>
+    <string name="port_server">Port du serveur :</string>
+    <string name="port_matrix">Port de la matrice :</string>
+    <string name="led">Lancement du Test LED</string>
+    <string name="on">Allumer</string>
+    <string name="off">Eteindre</string>
+</resources>

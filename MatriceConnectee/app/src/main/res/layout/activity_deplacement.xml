@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeplacementActivity">
+
+    <ImageButton
+        android:id="@+id/buttonBas"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@color/yellow"
+        android:clickable="true"
+        android:contentDescription="@string/bas"
+        android:contextClickable="true"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fleche_bas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCentre"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <ImageButton
+        android:id="@+id/buttonDroite"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@color/yellow"
+        android:clickable="true"
+        android:contentDescription="@string/droite"
+        android:contextClickable="true"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fleche_droite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/buttonCentre"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/connexion1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:onClick="connexion"
+        android:text="@string/connection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <Button
+        android:id="@+id/deconnexion1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="quitter"
+        android:text="@string/disconnection"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connexion1"
+        app:layout_constraintVertical_bias="0.03" />
+
+    <ImageButton
+        android:id="@+id/buttonCentre"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@color/blue"
+        android:clickable="true"
+        android:contentDescription="@string/centre"
+        android:contextClickable="true"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/centre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonGauche"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@color/yellow"
+        android:clickable="true"
+        android:contentDescription="@string/gauche"
+        android:contextClickable="true"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fleche_gauche"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCentre"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonHaut"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@color/yellow"
+        android:clickable="true"
+        android:contentDescription="@string/haut"
+        android:contextClickable="true"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fleche_haut"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCentre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

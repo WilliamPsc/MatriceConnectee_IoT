@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Connected Matrix</string>
+    <string name="connection">Connection</string>
+
+    <string name="centre">Center</string>
+    <string name="gauche">Left</string>
+    <string name="droite">Right</string>
+    <string name="bas">Bottom</string>
+    <string name="haut">Up</string>
+    <string name="launch">Launch application</string>
+    <string name="settings">Settings</string>
+    <string name="logo">Application logo</string>
+    <string name="disconnection">Disconnection</string>
+    <string name="retour">Back</string>
+
+    <!-- Preference Titles -->
+    <string name="about_header">About the application</string>
+    <string name="author">Authors</string>
+    <string name="developpers">Maureen PERON, Timothé LANNUZEL, William PENSEC</string>
+    <string name="context">Context</string>
+    <string name="project">This application has been developped for a M2 Project with IoT</string>
+    <string name="version">Version</string>
+    <string name="nbVersion" translatable="false">0.4.2</string>
+    <string name="date">Date of the last version</string>
+    <string name="nbDate" translatable="false">09/01/2021</string>
+    <string name="launchMatrix">Launch matrix</string>
+    <string name="data">Data to save</string>
+    <string name="ip_serveur">Server IP adress :</string>
+    <string name="nbPort_server" translatable="false">3000</string>
+    <string name="nbPort_matrix" translatable="false">3001</string>
+    <string name="ip_SM" translatable="false">127.0.0.1</string>
+    <string name="port_server">Server port :</string>
+    <string name="port_matrix">Matrix port :</string>
+    <string name="led">Launch LED Test</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
+</resources>

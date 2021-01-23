@@ -1,0 +1,53 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/about_header">
+
+        <Preference
+            android:clickable="false"
+            android:key="auteurs"
+            android:summary="@string/developpers"
+            android:title="@string/author"
+            android:touchscreenBlocksFocus="false"
+            app:title="@string/author" />
+
+        <Preference
+            android:key="contexte"
+            android:summary="@string/project"
+            android:title="@string/context"
+            app:title="@string/context" />
+        <Preference
+            android:key="version"
+            android:summary="@string/nbVersion"
+            android:title="@string/version" />
+        <Preference
+            android:key="date"
+            android:summary="@string/nbDate"
+            android:title="@string/date" />
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/data">
+
+        <EditTextPreference
+            android:id="@+id/ip_server"
+            android:key="ip_server"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="@string/ip_SM"
+            android:title="@string/ip_serveur" />
+        <EditTextPreference
+            android:id="@+id/port_serveur"
+            android:key="port_serveur"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="@string/nbPort_server"
+            android:title="@string/port_server" />
+        <EditTextPreference
+            android:key="port_matrice"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="@string/nbPort_matrix"
+            android:title="@string/port_matrix" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
