@@ -73,7 +73,6 @@ public class MyMatrix extends View {
             canvas.drawOval(pasW*x+4, pasH*y+4, pasW*(x+1)-4, pasH*(y+1)-4, paintDisque1);
             canvas.drawOval(pasW*x+4, pasH*y+4, pasW*(x+1)-4, pasH*(y+1)-4, paintDisque2);
         }
-
     }
 
     public void incX() {
