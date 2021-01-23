@@ -80,7 +80,7 @@ public class VueMatrice extends AppCompatActivity {
                 try{
                     BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
                     String s ;
-                    while(!(s = br.readLine()).equals("exit")) {
+                    while(!(s = br.readLine()).equals(("exit"))) {
                         if(s.equals("d")) { System.out.println("DROITE"); matrice.incX(); System.out.print("IoRMatrix_S > "); }
                         if(s.equals("g")) { System.out.println("GAUCHE"); matrice.decX(); System.out.print("IoRMatrix_S > "); }
                         if(s.equals("b")) { System.out.println("BAS"); matrice.incY(); System.out.print("IoRMatrix_S > "); }
@@ -90,6 +90,7 @@ public class VueMatrice extends AppCompatActivity {
                     }
                 }catch(Exception e){}
                 matrice.cacher();
+                ready = false;
                 System.out.println("Bye");
             }
         }).start();

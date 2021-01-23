@@ -16,11 +16,11 @@ const matriceServeur = require('net').createServer((matriceSocket) => {
   output = matriceSocket;
 });
 
-commandeServeur.listen(3000, () => {
+commandeServeur.listen(8080, () => {
     console.log('commandeServeur:', commandeServeur.address().port);
 });
 
-matriceServeur.listen(3001, () => {
+matriceServeur.listen(8081, () => {
   console.log('matriceServeur:', matriceServeur.address().port);
 });
 

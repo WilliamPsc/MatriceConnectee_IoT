@@ -15,7 +15,7 @@ public class MyMatrix extends View {
     private int n = 8 ;
     private int x = 0 ;
     private int y = 0 ;
-    private boolean afficherBalle = true ;
+    private boolean afficherBalle = false;
 
     public MyMatrix(Context context) {
         super(context);
