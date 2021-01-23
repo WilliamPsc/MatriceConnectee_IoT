@@ -106,12 +106,12 @@ public class MyMatrix extends View {
     }
 
     public void afficher() {
-        afficherBalle = true ;
+        afficherBalle = !afficherBalle ;
         invalidate();
     }
 
     public void cacher() {
-        afficherBalle = false ;
+        afficherBalle = false;
         invalidate();
     }
 

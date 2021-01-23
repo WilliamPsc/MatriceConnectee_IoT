@@ -11,7 +11,5 @@ setInterval(sendData, 1500);
 var c = '1'; // u = 1 / v = 0
 
 function sendData(){
-	client.write(c);
-	if(c == '1') c = '0';
-	else c = '1';
+	client.write("h");
 }

@@ -18,8 +18,8 @@ public class VueMatrice extends AppCompatActivity {
     Button deconnexion;
     MyMatrix matrice;
     public Socket client;
-    String host = "54.36.99.154";
-    int port = 3001;
+    String host = "192.168.43.105";
+    int port = 8081;
     boolean ready;
 
     @Override
@@ -85,6 +85,7 @@ public class VueMatrice extends AppCompatActivity {
                         if(s.equals("g")) { System.out.println("GAUCHE"); matrice.decX(); System.out.print("IoRMatrix_S > "); }
                         if(s.equals("b")) { System.out.println("BAS"); matrice.incY(); System.out.print("IoRMatrix_S > "); }
                         if(s.equals("h")) { System.out.println("HAUT"); matrice.decY(); System.out.print("IoRMatrix_S > "); }
+                        if(s.equals("a")) { System.out.println("Afficher/Masquer"); matrice.afficher(); System.out.print("IoRMatrix_S > "); }
                         if(s.equals("init")) { System.out.println("INIT"); matrice.init(); System.out.print("IoRMatrix_S > "); }
                     }
                 }catch(Exception e){}

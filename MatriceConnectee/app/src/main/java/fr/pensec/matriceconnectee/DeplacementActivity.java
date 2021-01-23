@@ -32,8 +32,8 @@ public class DeplacementActivity extends AppCompatActivity {
     Button connexion;
 
     public Socket client;
-    String host = "54.36.99.154";
-    int port = 3000;
+    String host = "192.168.43.105";
+    int port = 8080;
     public PrintStream ps;
 
     @Override
@@ -203,23 +203,13 @@ public class DeplacementActivity extends AppCompatActivity {
         });
 
         centerButton.setOnClickListener(v -> {
-            if (aff) {
-                new Thread(() -> {
-                    try {
-                        ps.println("afficher");
-                    } catch (Exception e) {
-                        System.out.println("Erreur !");
-                    }
-                }).start();
-            } else {
-                new Thread(() -> {
-                    try {
-                        ps.println("cacher");
-                    } catch (Exception e) {
-                        System.out.println("Erreur !");
-                    }
-                }).start();
-            }
+            new Thread(() -> {
+                try {
+                    ps.println("a");
+                } catch (Exception e) {
+                    System.out.println("Erreur !");
+                }
+            }).start();
         });
     }
 }
