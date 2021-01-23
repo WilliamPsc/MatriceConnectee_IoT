@@ -1,5 +1,6 @@
 var SerialPort = require('serialport');
 var port = new SerialPort('/dev/ttyAMA0', {baudRate: 115200});
+let output;
 
 var server = require('net').createServer((socket) => {
 	socket.on('data', (data) => {
@@ -11,6 +12,9 @@ var server = require('net').createServer((socket) => {
 			}
 		});
 	});
+	if (output) {
+		output.write(data.toString());
+	}
 });
 
 console.log("Script lancé!");
@@ -20,12 +24,16 @@ server.listen(8080, () => {
 });
 
 var serverMatrice = require('net').createServer((socketMatrice) => {
+	/*
 	socketMatrice.on('data', (data) => {
 		socketMatrice.write(data.toString());
 		console.log("Message envoyé à la matrice : " + data.toString());
 	});
+	*/
+	output = matriceSocket;
 });
 
 serverMatrice.listen(8081, () => {
 	console.log("Server Matrice opened on", serverMatrice.address().port);
+	
 })
