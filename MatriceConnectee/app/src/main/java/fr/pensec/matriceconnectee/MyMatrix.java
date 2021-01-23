@@ -118,4 +118,10 @@ public class MyMatrix extends View {
         System.exit(0);
     }
 
+    public void changeCoordonnees(int posX, int posY){
+        x = posX;
+        y = posY;
+        invalidate();
+    }
+
 }

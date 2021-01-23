@@ -8,7 +8,7 @@ LedControl lc = LedControl(DIN, CLK, CS, 1);
 
 int pos[2] = {4,4};
 bool masquer = true;
-char posAn[1];
+char posAn[2];
 
 void setup() {
   // initialize serial communication at 115200 bits per second:
@@ -19,10 +19,10 @@ void setup() {
   lc.clearDisplay(0);
   lc.setLed(0, pos[0], pos[1], true);
   
-  /*itoa(pos[0], posAn, 10);
-  Serial.print("%s", posAn); delay(100);
-  itoa(pos[1], posAn, 10);
-  Serial.print("%s", posAn);*/
+  //itoa(pos[0], posAn, 10);
+  //Serial.print(pos[0]); delay(100);
+  //itoa(pos[1], posAn, 10);
+  //Serial.print(pos[1]);
 }
 
 // the loop routine runs over and over again forever:
@@ -46,9 +46,12 @@ void loop() {
       pos[1] = (pos[1] + 1) % 8;
     } else if(etat == 'a'){
       masquer = !masquer;
+    } else if (etat == 'c'){ 
+      Serial.print(pos[0]); delay(50);
+      Serial.print(pos[1]);
     }
 
-
+    
     
     lc.setLed(0, pos[0], pos[1], masquer);
     delay(100);        // delay in between reads for stability
