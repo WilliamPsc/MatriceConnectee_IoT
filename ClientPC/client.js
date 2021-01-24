@@ -15,12 +15,16 @@ function sendData(){
 
 	if(val == 0){
 		client.write("h");
+		console.log("Envoi : h");
 	} else if(val == 1){
 		client.write("b");
+		console.log("Envoi : b");
 	} else if(val == 2){
 		client.write("d");
+		console.log("Envoi : d");
 	} else if(val == 3){
 		client.write("g");
+		console.log("Envoi : g");
 	}
-	console.log("Envoi : " + val);
+	
 }

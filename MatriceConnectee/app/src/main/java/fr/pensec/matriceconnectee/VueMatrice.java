@@ -57,7 +57,7 @@ public class VueMatrice extends AppCompatActivity {
         t.start();
 
         try{
-            Thread.sleep(100);
+            Thread.sleep(300);
             t.interrupt();
         } catch (InterruptedException ignored) {}
 
@@ -80,8 +80,9 @@ public class VueMatrice extends AppCompatActivity {
                     BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
                     String s ;
                     while(!(s = br.readLine()).equals(("exit"))) {
-                        System.out.println("Message reçu : " + s);
-                        if (Character.isDigit(s.charAt(0))) {
+                        if(s.length() == 0){
+                            System.out.println("Message vide");
+                        } else if (Character.isDigit(s.charAt(0))) {
                             System.out.println("Cordonnées reçu");
                             int posX = Integer.parseInt(s);
                             System.out.print("x:" + posX);
@@ -131,23 +132,18 @@ public class VueMatrice extends AppCompatActivity {
     }
 
     public void quitter(View v) {
-        Thread t = new Thread(() -> {
-            try {
-                matrice.cacher();
-                client.close();
-            } catch (Exception ignored) {}
-        });
-        t.start();
+        try {
+            matrice.cacher();
+            client.close();
 
-        try{
-            Thread.sleep(100);
-            t.interrupt();
-        } catch (InterruptedException ignored) {}
 
-        if (!client.isConnected()) {
-            Toast.makeText(getApplicationContext(), "Déconnexion faite !", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getApplicationContext(), "Déconnexion impossible !", Toast.LENGTH_SHORT).show();
-        }
+            if (!client.isConnected()) {
+                Toast.makeText(getApplicationContext(), "Déconnexion faite !", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getApplicationContext(), "Déconnexion impossible !", Toast.LENGTH_SHORT).show();
+            }
+
+            matrice.exit();
+        } catch (Exception ignored) {}
     }
 }

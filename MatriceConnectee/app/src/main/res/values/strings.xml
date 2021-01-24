@@ -21,15 +21,15 @@
     <string name="context">Context</string>
     <string name="project">This application has been developped for a M2 Project with IoT</string>
     <string name="version">Version</string>
-    <string name="nbVersion" translatable="false">0.4.2</string>
+    <string name="nbVersion" translatable="false">0.6.1</string>
     <string name="date">Date of the last version</string>
-    <string name="nbDate" translatable="false">09/01/2021</string>
+    <string name="nbDate" translatable="false">24/01/2021</string>
     <string name="launchMatrix">Launch matrix</string>
     <string name="data">Data to save</string>
     <string name="ip_serveur">Server IP adress :</string>
-    <string name="nbPort_server" translatable="false">3000</string>
-    <string name="nbPort_matrix" translatable="false">3001</string>
-    <string name="ip_SM" translatable="false">127.0.0.1</string>
+    <string name="nbPort_server" translatable="false">8080</string>
+    <string name="nbPort_matrix" translatable="false">8081</string>
+    <string name="ip_SM" translatable="false">192.168.43.105</string>
     <string name="port_server">Server port :</string>
     <string name="port_matrix">Matrix port :</string>
     <string name="led">Launch LED Test</string>

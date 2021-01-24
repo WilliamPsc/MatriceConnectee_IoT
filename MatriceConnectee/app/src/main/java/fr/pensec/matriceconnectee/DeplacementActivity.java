@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 
@@ -132,20 +133,10 @@ public class DeplacementActivity extends AppCompatActivity {
         }
     }
 
-    public void quitter(View v) {
-        Thread t = new Thread(() -> {
-            try {
-                ps.println("exit");
-                ps.close();
-                client.close();
-            } catch (Exception ignored) {}
-        });
-        t.start();
-
-        try{
-            Thread.sleep(100);
-            t.interrupt();
-        } catch (InterruptedException ignored) {}
+    public void quitter(View v) throws IOException {
+        ps.println("exit");
+        ps.close();
+        client.close();
 
         if (!client.isConnected()) {
             Toast.makeText(getApplicationContext(), "Déconnexion faite !", Toast.LENGTH_SHORT).show();
@@ -201,14 +192,12 @@ public class DeplacementActivity extends AppCompatActivity {
             }).start();
         });
 
-        centerButton.setOnClickListener(v -> {
-            new Thread(() -> {
-                try {
-                    ps.println("a");
-                } catch (Exception e) {
-                    System.out.println("Erreur !");
-                }
-            }).start();
-        });
+        centerButton.setOnClickListener(v -> new Thread(() -> {
+            try {
+                ps.println("a");
+            } catch (Exception e) {
+                System.out.println("Erreur !");
+            }
+        }).start());
     }
 }
