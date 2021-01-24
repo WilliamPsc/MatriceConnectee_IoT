@@ -38,10 +38,9 @@ public class VueMatrice extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -74,13 +73,14 @@ public class VueMatrice extends AppCompatActivity {
         new Thread(()->{
             while(ready) {
                 System.out.println("ClientMatrice START ");
-                System.out.print("IoRMatrix_S > ");
+                System.out.print("IoRMatrix_C > ");
                 matrice.afficher();
                 matrice.init();
                 try{
                     BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
                     String s ;
                     while(!(s = br.readLine()).equals(("exit"))) {
+                        System.out.println("Message reçu : " + s);
                         if (Character.isDigit(s.charAt(0))) {
                             System.out.println("Cordonnées reçu");
                             int posX = Integer.parseInt(s);
@@ -88,53 +88,52 @@ public class VueMatrice extends AppCompatActivity {
                             s = br.readLine();
                             int posY = Integer.parseInt(s);
                             System.out.println("\t y:" + posY);
-                            matrice.changeCoordonnees(posX,posY);
-                            System.out.print("IoRMatrix_S > ");
-                        } else if (Character.isLetter(s.charAt(0))){
+                            matrice.changeCoordonnees(posX,7 -  posY); // Inversement de position car système coordonnées différentes entre ARDUINO & ANDROID
+                            System.out.print("IoRMatrix_C > ");
+                        } else {
                             if (s.equals("d")) {
                                 System.out.println("DROITE");
                                 matrice.incX();
-                                System.out.print("IoRMatrix_S > ");
+                                System.out.print("IoRMatrix_C > ");
                             }
                             if (s.equals("g")) {
                                 System.out.println("GAUCHE");
                                 matrice.decX();
-                                System.out.print("IoRMatrix_S > ");
+                                System.out.print("IoRMatrix_C > ");
                             }
                             if (s.equals("b")) {
                                 System.out.println("BAS");
                                 matrice.incY();
-                                System.out.print("IoRMatrix_S > ");
+                                System.out.print("IoRMatrix_C > ");
                             }
                             if (s.equals("h")) {
                                 System.out.println("HAUT");
                                 matrice.decY();
-                                System.out.print("IoRMatrix_S > ");
+                                System.out.print("IoRMatrix_C > ");
                             }
                             if (s.equals("a")) {
                                 System.out.println("Afficher/Masquer");
                                 matrice.afficher();
-                                System.out.print("IoRMatrix_S > ");
+                                System.out.print("IoRMatrix_C > ");
                             }
                             if (s.equals("init")) {
                                 System.out.println("INIT");
                                 matrice.init();
-                                System.out.print("IoRMatrix_S > ");
+                                System.out.print("IoRMatrix_C > ");
                             }
                         }
                     }
-                }catch(Exception e){}
-                matrice.cacher();
+                }catch(Exception e){e.printStackTrace();}
                 ready = false;
                 System.out.println("Bye");
             }
         }).start();
-
     }
 
     public void quitter(View v) {
         Thread t = new Thread(() -> {
             try {
+                matrice.cacher();
                 client.close();
             } catch (Exception ignored) {}
         });

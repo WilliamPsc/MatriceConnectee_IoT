@@ -8,10 +8,10 @@ client.on('data', (message) => {
 });
 
 setInterval(sendData, 1500);
-var c = '1'; // u = 1 / v = 0
 
 function sendData(){
 	var val = Math.floor(Math.random() * (4 - 0) + 0);
+	//var val = 2;
 
 	if(val == 0){
 		client.write("h");
@@ -22,4 +22,5 @@ function sendData(){
 	} else if(val == 3){
 		client.write("g");
 	}
+	console.log("Envoi : " + val);
 }
