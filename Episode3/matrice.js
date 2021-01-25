@@ -37,6 +37,7 @@ const serverMatrice = require('net').createServer((socketMatrice) => {
 	port.on('data', function (data) {
 		console.log("Coordonnées LED : " + data.toString());
 		output.write(data.toString());
+		data = null;
 	});
 });
 

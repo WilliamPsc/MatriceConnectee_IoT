@@ -49,6 +49,8 @@ void loop() {
       Serial.println(pos[0]); delay(50);
       Serial.println(pos[1]);
     }
+
+    //Serial.flush();
     
     lc.setLed(0, pos[0], pos[1], masquer);
     delay(100);        // delay in between reads for stability

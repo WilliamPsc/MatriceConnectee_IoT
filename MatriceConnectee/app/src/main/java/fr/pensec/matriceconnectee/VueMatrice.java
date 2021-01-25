@@ -132,18 +132,27 @@ public class VueMatrice extends AppCompatActivity {
     }
 
     public void quitter(View v) {
-        try {
-            matrice.cacher();
-            client.close();
+        ready = false;
+        Thread t = new Thread(() -> {
+            try {
+                matrice.cacher();
+                client = null;
+            } catch (Exception ignored) {}
+        });
+        t.start();
 
+        try{
+            Thread.sleep(100);
+            t.interrupt();
+        } catch (InterruptedException ignored) {}
 
-            if (!client.isConnected()) {
-                Toast.makeText(getApplicationContext(), "Déconnexion faite !", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(getApplicationContext(), "Déconnexion impossible !", Toast.LENGTH_SHORT).show();
-            }
-
-            matrice.exit();
-        } catch (Exception ignored) {}
+        if (client == null) {
+            Toast.makeText(getApplicationContext(), "Déconnexion faite !", Toast.LENGTH_SHORT).show();
+            connexion.setEnabled(true);
+            deconnexion.setEnabled(false);
+        }else{
+            Toast.makeText(getApplicationContext(), "Déconnexion impossible !", Toast.LENGTH_SHORT).show();
+        }
+        matrice.exit();
     }
 }

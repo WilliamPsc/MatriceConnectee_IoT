@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.net.SocketException;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -60,6 +61,28 @@ public class DeplacementActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             onBackPressed();
+
+            Thread t = new Thread(() -> {
+                try {
+                    ps.println("exit");
+                    ps.flush();
+                    client = null;
+                } catch (Exception ignored) {}
+            });
+            t.start();
+
+            try{
+                Thread.sleep(100);
+                t.interrupt();
+            } catch (InterruptedException ignored) {}
+
+            if (client == null) {
+                Toast.makeText(getApplicationContext(), "Déconnexion faite !", Toast.LENGTH_SHORT).show();
+                disabledCommand();
+            }else{
+                Toast.makeText(getApplicationContext(), "Déconnexion impossible !", Toast.LENGTH_SHORT).show();
+            }
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -134,11 +157,21 @@ public class DeplacementActivity extends AppCompatActivity {
     }
 
     public void quitter(View v) throws IOException {
-        ps.println("exit");
-        ps.close();
-        client.close();
+        Thread t = new Thread(() -> {
+            try {
+                ps.println("exit");
+                ps.flush();
+                client = null;
+            } catch (Exception ignored) {}
+        });
+        t.start();
 
-        if (!client.isConnected()) {
+        try{
+            Thread.sleep(100);
+            t.interrupt();
+        } catch (InterruptedException ignored) {}
+
+        if (client == null) {
             Toast.makeText(getApplicationContext(), "Déconnexion faite !", Toast.LENGTH_SHORT).show();
             disabledCommand();
         }else{

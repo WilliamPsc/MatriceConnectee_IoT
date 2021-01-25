@@ -1,4 +1,5 @@
 \documentclass[a4paper,12pt]{report}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[utf8]{inputenc} % style d'écriture
 \usepackage[T1]{fontenc}      % package
 \usepackage[francais]{babel}  % package pour langue française
@@ -174,24 +175,117 @@
 	\newpage
 	\section{Introduction}
 		\paragraph*{}
-		%L'objectif de ce projet est de concevoir en VHDL un moniteur de temps d'exécution de tâches sur un processeur. En effet, sur un système temps réel, il est très important que les contraintes de temps soient respectées afin d'éviter tout problèmes. Le composant doit suivre l'exécution de chaques tâches et envoyer un signal d'interruption au processeur si l'une d'entre elles dépasse son échéance. La capacité maximale d'une tâche s'appelle le Worst Case Execution Time (WCET). En connaissant cette valeur, on sait si le processeur peut gérer le système ou s'il est nécessaire de le changer pour quelque chose de plus performant.
+		Ce rapport décrit le travail effectué pour le projet avec en détail les architectures choisies.
 		
-		%Afin de simplifier les simulations, nous avons fixé des deadlines de telle manière à ce que tout soit fini en 30 ns maximum lors de la simulation sur Vivado.
+		Le projet consistait à la réalisation d’un jeu constitué d’un point se trouvant dans une grille et qui peut être déplacé via téléphones ou des commandes à distances.
+Le code réalisé peut etre retouvé sur Github: https://github.com/WilliamPsc/ MatriceConnectee\_IoT
 	
 	\section{Travail effectué}
-	
+		\subsection{Épisode 1}
+			\paragraph*{}
+			
+			\begin{figure}[H]
+				\centering
+					\includegraphics[scale=0.9]{ep1.png}
+				\label{ep1}
+			\end{figure}
+		
+		\subsection{Épisode 2}
+			\paragraph*{}
+			
+			\begin{figure}[H]
+				\centering
+					\includegraphics[scale=1]{ep2.png}
+				\label{ep1}
+			\end{figure}
+		
+		\subsection{Épisode 3}
+			\paragraph*{}
+			
+			\begin{figure}[H]
+				\centering
+					\includegraphics[scale=0.8]{ep3_1.png}
+				\label{ep1}
+			\end{figure}
+			
+			\begin{figure}[H]
+				\centering
+					\includegraphics[scale=0.8]{ep3_2.png}
+				\label{ep1}
+			\end{figure}
+			
+			\begin{figure}[H]
+				\centering
+					\includegraphics[scale=1]{ep3_3.png}
+				\label{ep1}
+			\end{figure}
+		
+		
+		\subsection{Épisode 4}
+			\paragraph*{}
+			
+			\begin{figure}[H]
+				\centering
+					\includegraphics[scale=1]{ep4.png}
+				\label{ep1}
+			\end{figure}
+		
+		
+		\subsection{Autres implémentations faites}
+			\paragraph*{}
+			Nous avons ajouté certaines fonctionnalités supplémentaires qui ont surtout servi à une meilleure ergonomie de l'application.
+			
+			Nous pouvons cité par exemple la traduction complète de l'application en Anglais (US) et Français avec une possibilité d'ajout d'autres langues si nécessaire.
+			
+			Nous avons également ajouté des messages s'affichant en bas de l'écran en cas de connexion bien réalisé ou mal réalisée et pareil pour la déconnexion.
+			
+			Nous avons ajouté une activité de paramètres qui devait servir au départ à inscrire dans une box l'IP du serveur et les ports à utiliser mais nous n'avons pas eu le temps de finir cette partie qui est pourtant très proche de la fin !
+			
+			Enfin, afin de mieux nous organiser dans notre travail, nous avons utilisé GitHub afin de travailler à plusieurs et à distance et également pour versionner le projet pour éviter des problèmes qui aurait pu survenir en cas d'écrasement d'un fichier fonctionnel et par la perte de son contenu. Pour utiliser GitHub nous avons utilisé le logiciel sur Windows GitKraken (https://www.gitkraken.com/).
 	
 	\section{Conclusion}
+		\paragraph*{}
+		Nous n'avons pas réussi à tout implémenter notamment dû aux conditions sanitaires actuelles et également à certains problèmes tel le XBEE qui ne se connectait pas. Malgré cela, une très grosse partie du projet a été réalisé avec le détail des codes dans les différents sous-dossiers présents dans le dossier principal. Nous avons travaillé le côté fonctionnel mais aussi un peu le côté ergonomique en ajoutant des petites fonctionnalités bonus tel la traduction complète de l'application ou les ajouts des messages si la connexion s'est bien faite ou si la déconnexion s'est bien passée. Vous pouvez voir le résultat de l'application dans le dossier ou alors sinon dans la section Annexes qui suit il y a quelques screenshots de l'application sur un téléphone Samsung A40.
 	
+	\section{Annexes}
+		\paragraph*{}
+		Je met des screenshots de l'application Android avec quelques fonctionnalités actives au cas où elles ne fonctionneraient pas sur un autre appareil.
 		
+		\begin{figure}[H]
+			\centering
+				\includegraphics[scale=0.14]{menu.jpg}
+				\caption{Menu principal de l'application}
+		\end{figure}
 		
-		%\begin{figure}[H]
-			%\centering
-				%\includegraphics[scale=0.4]{moniteur_tb.png}
-				%\caption{Testbench moniteur de tâches}
-			%\label{monitorTB}
-		%\end{figure}
-			
-			
+		\begin{figure}[H]
+			\centering
+				\includegraphics[scale=0.2]{depnco.jpg}
+				\caption{Activité déplacement du point en non connecté}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centering
+				\includegraphics[scale=0.2]{depco.jpg}
+				\caption{Activité déplacement du point en connecté}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centering
+				\includegraphics[scale=0.2]{matco.jpg}
+				\caption{Activité affichage de la matrice en connecté}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centering
+				\includegraphics[scale=0.2]{matnco.jpg}
+				\caption{Activité affichage de la matrice en non connecté}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centering
+				\includegraphics[scale=0.2]{param.jpg}
+				\caption{Activité paramètres}
+		\end{figure}
+
 	\clearpage
 \end{document}
