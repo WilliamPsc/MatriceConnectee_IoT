@@ -1,15 +1,22 @@
-// On crée un serveur sur cette machine (raspberry pi 3)
+/**
+ * @description On se connecte au serveur en paramètre sur le port 8080
+ *              Ensuite, le programme attend une input clavier afin de l'envoyer au serveur une fois que l'utilisateur a appuyé sur ENTREE
+ */
+
+// Connexion au serveur
 var client = require('net').connect(8080, '192.168.43.105', function () {
     console.log("Connected");
 });
 
+
+// Création du module d'attente d'une saisie clavier
 const readline = require('readline');
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
+    input: process.stdin, // input standard : clavier
+    output: process.stdout, // sortie standard
 });
 
-rl.prompt();
+rl.prompt(); // affiche ">"
 
 rl.on('line', (line) => {
     switch (line.trim()) {
@@ -30,7 +37,7 @@ rl.on('line', (line) => {
             break;
         case 'exit':
             client.write("exit");
-            client.destroy();
+            client.destroy(); // Permet de se déconnecter du serveur proprement
             process.exit(0);
             break;
         default:
@@ -39,8 +46,4 @@ rl.on('line', (line) => {
     rl.prompt();
 }).on('close', () => {
     process.exit(0);
-});
-
-client.on('data', (message) => {
-    console.log(message.toString());
 });

@@ -1,13 +1,18 @@
+/**
+ * @description Ce fichier Arduino permet de contrôler la matrice LED, ce fichier vient des fichiers exemples de la librairie LEDCONTROL.
+ */
 #include "LedControl.h"
 
-#define DIN 12
+// Pin de la matrice
+#define DIN 12 
 #define CLK 11
 #define CS 10
 
 LedControl lc = LedControl(DIN, CLK, CS, 1);
 
+// tableau de position de la LED servant à envoyer cette valeur à l'Android lors de l'initialisation
 int pos[2] = {0,0};
-bool masquer = true;
+bool masquer = true; // Quand on ne veut plus afficher la LED avec le bouton central sur Android
 
 void setup() {
   // initialize serial communication at 115200 bits per second:
@@ -44,8 +49,6 @@ void loop() {
       Serial.println(pos[0]); delay(50);
       Serial.println(pos[1]);
     }
-
-    
     
     lc.setLed(0, pos[0], pos[1], masquer);
     delay(100);        // delay in between reads for stability

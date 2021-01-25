@@ -1,22 +1,28 @@
+/**
+ * @description Ce fichier Arduino permet d'allumer ou éteindre une LED selon la donnée reçue sur le port série. 
+ *              La LED allumée sera la LED 13 (LED_BUILTIN) et sera allumée si l'arduino reçoit 1 sur le port série.
+ */
+
+
 void setup() {
-  // initialize serial communication at 115200 bits per second:
+  // Initialize serial communication at 115200 bits per second:
   Serial.begin(115200);
-  // make the pushbutton's pin an input:
+  // PIN 13 en output
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
-// the loop routine runs over and over again forever:
+// loop
 void loop() {
-  // read the input pin:
-  while ( Serial.available()) // Check to see if at least one character is available
+  // Lecture et attente d'une donnée sur le port série
+  while (Serial.available()) // Vérifie si au moins une donnée est disponible
   {
     char etat = Serial.read();
-    // print out the state of the button:
+
     if (etat == '1') {
-      digitalWrite(LED_BUILTIN, HIGH);
+      digitalWrite(LED_BUILTIN, HIGH); // On allume la LED
     } else {
-      if(etat == '0') digitalWrite(LED_BUILTIN, LOW);
+      if(etat == '0') digitalWrite(LED_BUILTIN, LOW); // On éteint la LED
     }
-    delay(1000);        // delay in between reads for stability
+    delay(1000); // délai de 1s
   }
 }
