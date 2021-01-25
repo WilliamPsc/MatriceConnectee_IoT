@@ -1,4 +1,11 @@
-var SerialPort = require('serialport');
+/**
+ * @description Code final de la partie 7 de l'épisode 3.
+ * 				Ce fichier permet d'ouvrir un serveur sur le port 8080 et d'envoyer les données reçues vers un deuxième serveur ouvert sur le port 8081.
+ * 				Ces deux serveur permettent de faire communiquer l'application Android (partie déplacement du point) avec l'Arduino 
+ * 					et l'application Android (partie de visualisation de la matrice).
+ */
+
+ var SerialPort = require('serialport');
 var port = new SerialPort('/dev/ttyAMA0', { baudRate: 115200 });
 let output;
 

@@ -1,0 +1,197 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc} % style d'écriture
+\usepackage[T1]{fontenc}      % package
+\usepackage[francais]{babel}  % package pour langue française
+\usepackage[a4paper]{geometry} % definition des marges
+\usepackage[pdftex]{graphicx} % definition d'image
+\usepackage{fancyhdr} % haut de page
+\usepackage{float}
+\usepackage{tcolorbox,listings}
+\usepackage{caption}
+\addtocounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\usepackage{color}
+
+
+\lstset{
+  aboveskip=5mm,
+  belowskip=-2mm,
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\color{red},
+  deletekeywords={...},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  framexleftmargin=16pt,
+  framextopmargin=3pt,
+  framexbottommargin=6pt,
+  frame=tb,
+  keepspaces=true,
+  keywordstyle=\color{blue},
+  language=VHDL,
+  literate=
+  {²}{{\textsuperscript{2}}}1
+  {⁴}{{\textsuperscript{4}}}1
+  {⁶}{{\textsuperscript{6}}}1
+  {⁸}{{\textsuperscript{8}}}1
+  {€}{{\euro{}}}1
+  {é}{{\'e}}1
+  {è}{{\`{e}}}1
+  {ê}{{\^{e}}}1
+  {ë}{{\"{e}}}1
+  {É}{{\'{E}}}1
+  {Ê}{{\^{E}}}1
+  {û}{{\^{u}}}1
+  {ù}{{\`{u}}}1
+  {â}{{\^{a}}}1
+  {à}{{\`{a}}}1
+  {á}{{\'{a}}}1
+  {ã}{{\~{a}}}1
+  {Á}{{\'{A}}}1
+  {Â}{{\^{A}}}1
+  {Ã}{{\~{A}}}1
+  {ç}{{\c{c}}}1
+  {Ç}{{\c{C}}}1
+  {õ}{{\~{o}}}1
+  {ó}{{\'{o}}}1
+  {ô}{{\^{o}}}1
+  {Õ}{{\~{O}}}1
+  {Ó}{{\'{O}}}1
+  {Ô}{{\^{O}}}1
+  {î}{{\^{i}}}1
+  {Î}{{\^{I}}}1
+  {í}{{\'{i}}}1
+  {Í}{{\~{Í}}}1,
+  morekeywords={*,...},
+  numbers=left,
+  numbersep=10pt,
+  numberstyle=\tiny\color{black},
+  rulecolor=\color{black},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stepnumber=1,
+  stringstyle=\color{gray},
+  tabsize=4,
+  title=\lstname,
+}
+
+%\captionsetup[figure]{labelformat=empty}
+\renewcommand{\thesection}{\Roman{section}}
+
+\begin{document}
+   \begin{titlepage}
+    
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+    
+    \center % Center everything on the page
+     
+    %----------------------------------------------------------------------------------------
+    %	HEADING SECTIONS
+    %----------------------------------------------------------------------------------------
+    
+    \textsc{\LARGE Université de Bretagne Occidentale}\\[1.5cm] % Name of your university/college
+		\textsc{\Large Master 2 Informatique}\\[0.5cm] % Major heading such as course name
+		\textsc{\Large Département Informatique}\\[1.5cm] % Major heading such as course name
+		{\large 2020/2021}\\[1.5cm] % Date, change the \today to a set date if you want to be precise
+		
+    \textsc{\large Mobiles et Objets Connectés}\\[1cm] % Minor heading such as course title
+    
+    %----------------------------------------------------------------------------------------
+    %	TITLE SECTION
+    %----------------------------------------------------------------------------------------
+    
+   \HRule \\[0.4cm]
+    { \huge \bfseries La Matrice Connecté}\\[0.2cm] % Title of your document
+    \HRule \\[1cm]
+     
+    %----------------------------------------------------------------------------------------
+    %	AUTHOR SECTION
+    %----------------------------------------------------------------------------------------
+    
+    \begin{minipage}{0.48\textwidth}
+			\begin{flushleft} \large
+				\emph{Auteur:}\\
+					Maureen \textsc{PERON} % Your name
+			\end{flushleft}
+    \end{minipage}
+		~
+		\begin{minipage}{0.48\textwidth}
+			\begin{flushright} \large
+				\emph{Auteur:}\\
+					Timothé \textsc{LANNUZEL} % Your name
+			\end{flushright}
+    \end{minipage}\\[0.5cm]
+		
+		\begin{minipage}{0.48\textwidth}
+			\begin{center} \large
+				\emph{Auteur:}\\
+					William \textsc{PENSEC} % Your name
+			\end{center}
+    \end{minipage}\\[1.5cm]
+    
+    %----------------------------------------------------------------------------------------
+    %	DATE SECTION
+    %----------------------------------------------------------------------------------------
+    
+    {\today}\\[1.5cm] % Date, change the \today to a set date if you want to be precise
+    
+    %----------------------------------------------------------------------------------------
+    %	LOGO SECTION
+    %----------------------------------------------------------------------------------------
+    
+		\begin{minipage}{0.48\textwidth}
+			\begin{flushleft} \large
+				\includegraphics[scale=0.8]{ubo_sc.png} % Include a department/university logo - this will require the graphicx package
+			\end{flushleft}
+    \end{minipage}
+		~
+    \begin{minipage}{0.48\textwidth}
+			\begin{flushright} \large
+				\includegraphics[scale=0.5]{ubo.png} % Include a department/university logo - this will require the graphicx package
+			\end{flushright}
+    \end{minipage}
+    
+    %----------------------------------------------------------------------------------------
+    
+    \vfill % Fill the rest of the page with whitespace
+    
+    \end{titlepage}
+		
+	\pagestyle{fancy}
+		\lhead{Rapport Projet MOC}
+		\chead{}
+		\rhead{Matrice Connectée}
+		\lfoot{}
+		\cfoot{\thepage}
+		\rfoot{}
+		
+	\newpage\renewcommand{\contentsname}{Sommaire}
+	\tableofcontents
+
+	\newpage
+	\section{Introduction}
+		\paragraph*{}
+		%L'objectif de ce projet est de concevoir en VHDL un moniteur de temps d'exécution de tâches sur un processeur. En effet, sur un système temps réel, il est très important que les contraintes de temps soient respectées afin d'éviter tout problèmes. Le composant doit suivre l'exécution de chaques tâches et envoyer un signal d'interruption au processeur si l'une d'entre elles dépasse son échéance. La capacité maximale d'une tâche s'appelle le Worst Case Execution Time (WCET). En connaissant cette valeur, on sait si le processeur peut gérer le système ou s'il est nécessaire de le changer pour quelque chose de plus performant.
+		
+		%Afin de simplifier les simulations, nous avons fixé des deadlines de telle manière à ce que tout soit fini en 30 ns maximum lors de la simulation sur Vivado.
+	
+	\section{Travail effectué}
+	
+	
+	\section{Conclusion}
+	
+		
+		
+		%\begin{figure}[H]
+			%\centering
+				%\includegraphics[scale=0.4]{moniteur_tb.png}
+				%\caption{Testbench moniteur de tâches}
+			%\label{monitorTB}
+		%\end{figure}
+			
+			
+	\clearpage
+\end{document}
